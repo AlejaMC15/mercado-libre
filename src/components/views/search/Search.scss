@@ -1,0 +1,44 @@
+.container {
+    background-color: #FFE600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1%;
+
+    .logo {
+        display: flex;
+        margin-right: 2%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo img {
+        width: 100%;
+    }
+
+    .search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        border-radius: 3px;
+        width: 70%;
+        height: auto;
+
+        input {
+            border-color: transparent;
+            border-radius: 2px;
+            color: #999999;
+            width: 100%;
+            margin-left: 1%;
+        }
+
+        img {
+            background-color: #EEEEEE;
+            padding: 1%;
+            border-radius: 0px 3px 3px 0px;
+        }
+    }
+
+}
