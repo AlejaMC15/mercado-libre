@@ -16,6 +16,7 @@ function App() {
     dataItem,
     getDescription,
     descriptionItem,
+    loading,
   } = UseApi();
 
   return (
@@ -32,7 +33,17 @@ function App() {
         </li>
         <li>Italy</li>
       </ul> */}
-      <ListItemsProvider value={{ getListItems, data }}>
+      <ListItemsProvider
+        value={{
+          getListItems,
+          data,
+          getDetailItem,
+          dataItem,
+          getDescription,
+          descriptionItem,
+          loading,
+        }}
+      >
         <Search />
         <Routes>
           <Route

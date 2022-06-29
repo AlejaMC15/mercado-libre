@@ -4,7 +4,8 @@ import "./ItemDetail.scss";
 
 const ItemDetail = (props) => {
   const location = useLocation();
-  const { getDetailItem, dataItem, getDescription, descriptionItem } = props;
+  const { getDetailItem, dataItem, getDescription, descriptionItem, loading } =
+    props;
 
   useEffect(() => {
     if (location.state !== undefined) {
@@ -21,29 +22,40 @@ const ItemDetail = (props) => {
   }, [location.state]);
 
   return (
-    <div className="containerItemDetail">
-      <div className="sectionOne">
-        <div>
-          <img src={dataItem?.thumbnail} alt="imgItem" />
-        </div>
-        <div className="detailItem">
-          <div>
-            {dataItem?.condition} - {dataItem?.sold_quantity} vendidos
+    <>
+      {!loading ? (
+        <div className="containerItemDetail">
+          <div className="sectionOne">
+            <div className="imgItem">
+              <img src={dataItem?.thumbnail} alt="imgItem" />
+            </div>
+            <div className="detailItem">
+              <div>
+                {
+                  dataItem?.attributes.find(
+                    (item) => item.id === "ITEM_CONDITION"
+                  ).value_name
+                }{" "}
+                - {dataItem?.sold_quantity} vendidos
+              </div>
+
+              <div>{dataItem?.title}</div>
+
+              <div>{dataItem?.base_price}</div>
+              <button>Comprar</button>
+            </div>
           </div>
-
-          <div>{dataItem?.title}</div>
-
-          <div>{dataItem?.base_price}</div>
-          <button>Comprar</button>
+          <div>
+            <div>
+              <span>Descrpción del producto</span>
+            </div>
+            <div>{descriptionItem?.plain_text}</div>
+          </div>
         </div>
-      </div>
-      <div>
-        <div>
-          <span>Descrpción del producto</span>
-        </div>
-        <div>{descriptionItem?.plain_text}</div>
-      </div>
-    </div>
+      ) : (
+        <h1>Cargando...</h1>
+      )}
+    </>
   );
 };
 

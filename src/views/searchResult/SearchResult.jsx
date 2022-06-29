@@ -6,7 +6,7 @@ import "./SearchResult.scss";
 const SearchResult = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { getListItems, data } = props;
+  const { getListItems, data, loading } = props;
 
   useEffect(() => {
     if (location.state !== undefined) {
@@ -18,33 +18,45 @@ const SearchResult = (props) => {
 
   return (
     <div className="containerSearchResult">
-      {data?.results?.length > 0 &&
+      {!loading ? (
+        data?.results?.length > 0 &&
         data?.results?.map((item, index) => {
-          return (
-            <div
-              className="containerCard"
-              key={index}
-              onClick={() =>
-                navigate(`/items/${item?.id}`, { state: item?.id })
-              }
-            >
-              <div className="containerDetail">
-                <div className="imgPriceDescription">
-                  <img className="imgProduct" src={item?.thumbnail} alt="..." />
-                  <div className="imgAndDescription">
-                    <div className="price">
-                      {item?.price}{" "}
-                      <img className="imgCar" src={Car} alt="car" />{" "}
+          if (index < 4) {
+            return (
+              <div
+                className="containerCard"
+                key={index}
+                onClick={() =>
+                  navigate(`/items/${item?.id}`, { state: item?.id })
+                }
+              >
+                <div className="containerDetail">
+                  <div className="imgPriceDescription">
+                    <img
+                      className="imgProduct"
+                      src={item?.thumbnail}
+                      alt="imgProduct"
+                    />
+                    <div className="imgAndDescription">
+                      <div className="price">
+                        {item?.price}
+                        <img className="imgCar" src={Car} alt="car" />
+                      </div>
+                      <div className="description">{item?.title}</div>
                     </div>
-                    <div className="description">{item?.title}</div>
                   </div>
+                  <div className="place">{item?.address?.state_name}</div>
                 </div>
-                <div className="place">{item?.address?.state_name}</div>
+                <hr className="hr" />
               </div>
-              <hr className="hr" />
-            </div>
-          );
-        })}
+            );
+          } else {
+            return null;
+          }
+        })
+      ) : (
+        <h1>Cargando...</h1>
+      )}
     </div>
   );
 };

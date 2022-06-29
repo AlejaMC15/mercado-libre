@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 5%;
+    padding: 5.5%;
 
     .containerCard {
         justify-content: space-around;
@@ -32,6 +32,7 @@
             .imgAndDescription {
                 width: 70%;
                 margin-top: 3%;
+                margin-left: 2%;
 
                 .imgCar {
                     width: 2.5%;
