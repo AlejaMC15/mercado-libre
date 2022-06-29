@@ -1,3 +1,1 @@
-export const ConfigService = {
-  urlBase: "https://api.mercadolibre.com/sites/MLA"
-};
+export const urlBase = "https://api.mercadolibre.com";
