@@ -1,0 +1,34 @@
+.containerSearchResult {
+    background-color: #EEEEEE;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5%;
+
+    .containerCard {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: left;
+        padding: 2%;
+        background-color: white;
+        width: 80%;
+
+        .imgPriceDescription {
+            display: flex;
+            width: 80%;
+
+            .imgProduct {
+                width: 30%;
+            }
+
+            .imgAndDescription {
+                width: 70%;
+            }
+        }
+
+        .place {
+            width: 20%;
+        }
+    }
+}

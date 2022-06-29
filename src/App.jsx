@@ -1,18 +1,27 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Search from "./components/views/search/Search";
-import SearchResult from "./components/views/searchResult/SearchResult";
+import Search from "./views/search/Search";
+import SearchResult from "./views/searchResult/SearchResult";
+import { UseApi } from "./hooks/UseApi";
+import { ListItemsProvider } from "./context/listItemContext";
 
 import "./App.scss";
 
 function App() {
+  const { getListItems, data } = UseApi();
+
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Search />} />
-        <Route path="/items" element={<SearchResult />} />
-        <Route path="/items/:id" element={<SearchResult />} />
-      </Routes>
+      <ListItemsProvider value={{ getListItems, data }}>
+        <Routes>
+          <Route path="/" element={<Search />} />
+          <Route
+            path="/items"
+            element={<SearchResult getListItems={getListItems} data={data} />}
+          />
+          <Route path="/items/:id" element={<SearchResult />} />
+        </Routes>
+      </ListItemsProvider>
     </div>
   );
 }
