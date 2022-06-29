@@ -28,16 +28,20 @@ const SearchResult = (props) => {
                 navigate(`/items/${item?.id}`, { state: item?.id })
               }
             >
-              <div className="imgPriceDescription">
-                <img className="imgProduct" src={item?.thumbnail} alt="..." />
-                <div className="imgAndDescription">
-                  <div className="price">
-                    {item?.price} <img className="imgCar" src={Car} alt="car" />{" "}
+              <div className="containerDetail">
+                <div className="imgPriceDescription">
+                  <img className="imgProduct" src={item?.thumbnail} alt="..." />
+                  <div className="imgAndDescription">
+                    <div className="price">
+                      {item?.price}{" "}
+                      <img className="imgCar" src={Car} alt="car" />{" "}
+                    </div>
+                    <div className="description">{item?.title}</div>
                   </div>
-                  <div className="description">{item?.title}</div>
                 </div>
+                <div className="place">{item?.address?.state_name}</div>
               </div>
-              <div className="place">{item?.address?.state_name}</div>
+              <hr className="hr" />
             </div>
           );
         })}

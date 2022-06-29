@@ -13,7 +13,7 @@ const Search = () => {
   return (
     <div className="container">
       <div className="logo">
-        <img src={Logo} alt="logo_ml" />
+        <img src={Logo} alt="logo_ml" onClick={() => navigate(`/`)} />
       </div>
       <div className="search">
         <input

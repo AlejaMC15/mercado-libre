@@ -33,8 +33,8 @@ function App() {
         <li>Italy</li>
       </ul> */}
       <ListItemsProvider value={{ getListItems, data }}>
+        <Search />
         <Routes>
-          <Route path="/" element={<Search />} />
           <Route
             path="/items"
             element={<SearchResult getListItems={getListItems} data={data} />}
