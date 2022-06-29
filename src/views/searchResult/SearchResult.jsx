@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Car from "../../images/ic_shipping.png";
 import "./SearchResult.scss";
 
 const SearchResult = (props) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { getListItems, data } = props;
-
-  console.log(location.state, data);
 
   useEffect(() => {
     if (location.state !== undefined) {
@@ -22,7 +21,13 @@ const SearchResult = (props) => {
       {data?.results?.length > 0 &&
         data?.results?.map((item, index) => {
           return (
-            <div className="containerCard" key={index}>
+            <div
+              className="containerCard"
+              key={index}
+              onClick={() =>
+                navigate(`/items/${item?.id}`, { state: item?.id })
+              }
+            >
               <div className="imgPriceDescription">
                 <img className="imgProduct" src={item?.thumbnail} alt="..." />
                 <div className="imgAndDescription">

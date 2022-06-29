@@ -1,0 +1,13 @@
+.containerItemDetail {
+    width: 70%;
+    margin: 0 auto;
+
+    .sectionOne {
+        display: flex;
+        justify-content: space-around;
+
+        .detailItem {
+            text-align: left;
+        }
+    }
+}
