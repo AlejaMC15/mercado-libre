@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
+import FormatPrice from "../../utils/formatPrice";
 import "./ItemDetail.scss";
 
 const ItemDetail = (props) => {
@@ -12,13 +13,14 @@ const ItemDetail = (props) => {
     descriptionItem,
     loading,
     data,
+    error,
   } = props;
 
   useEffect(() => {
     if (location.state !== undefined) {
       getDetailItem(location.state);
     } else {
-      console.log("error");
+      console.log(error);
     }
   }, [location.state]);
 
@@ -37,7 +39,7 @@ const ItemDetail = (props) => {
                 <img src={dataItem?.pictures[0]?.secure_url} alt="imgItem" />
               </div>
               <div className="detailItem">
-                <div>
+                <div className="condition">
                   {
                     dataItem?.attributes.find(
                       (item) => item.id === "ITEM_CONDITION"
@@ -46,9 +48,12 @@ const ItemDetail = (props) => {
                   - {dataItem?.sold_quantity} vendidos
                 </div>
 
-                <div>{dataItem?.title}</div>
+                <div className="title">{dataItem?.title}</div>
 
-                <div>{dataItem?.base_price}</div>
+                <div className="price">
+                  {FormatPrice(Math.round(dataItem?.base_price))}
+                  <sup>00</sup>
+                </div>
                 <button>Comprar</button>
               </div>
             </div>

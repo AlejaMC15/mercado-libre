@@ -1,17 +1,20 @@
+@import '../../utils/variables.scss';
+
 .containerSearchResult {
-    background-color: #EEEEEE;
+    background-color: $quinary-color;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 5.5%;
+    padding: 0 5.5% 5.5%;
 
     .containerCard {
         justify-content: space-around;
         align-items: center;
         text-align: left;
-        padding: 0 2%;
+        padding: 2%;
         background-color: white;
         width: 80%;
+        margin-top: 0.3%;
 
         .containerDetail {
             display: flex;
@@ -27,6 +30,7 @@
 
             .imgProduct {
                 width: 20%;
+                border-radius: 3px;
             }
 
             .imgAndDescription {
@@ -44,11 +48,8 @@
             width: 20%;
             margin-top: 3%;
             font-size: 12px;
-            color: #999999;
+            color: $quaternary-color;
         }
 
-        .hr {
-            width: 100%;
-        }
     }
 }

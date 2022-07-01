@@ -7,13 +7,13 @@ import "./SearchResult.scss";
 const SearchResult = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { getListItems, data, loading } = props;
+  const { getListItems, data, loading, error } = props;
 
   useEffect(() => {
     if (location.state !== undefined) {
       getListItems(location.state);
     } else {
-      console.log("error");
+      console.log(error);
     }
   }, [location.state]);
 
@@ -43,14 +43,15 @@ const SearchResult = (props) => {
                       <div className="imgAndDescription">
                         <div className="price">
                           ${item?.price}
-                          <img className="imgCar" src={Car} alt="car" />
+                          {item?.shipping?.free_shipping && (
+                            <img className="imgCar" src={Car} alt="car" />
+                          )}
                         </div>
                         <div className="description">{item?.title}</div>
                       </div>
                     </div>
                     <div className="place">{item?.address?.state_name}</div>
                   </div>
-                  <hr className="hr" />
                 </div>
               );
             }

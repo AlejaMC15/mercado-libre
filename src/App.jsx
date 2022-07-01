@@ -17,7 +17,10 @@ function App() {
     getDescription,
     descriptionItem,
     loading,
+    error,
   } = UseApi();
+
+  console.log(loading);
 
   return (
     <div className="App">
@@ -30,6 +33,7 @@ function App() {
           getDescription,
           descriptionItem,
           loading,
+          error,
         }}
       >
         <Search />
@@ -37,7 +41,14 @@ function App() {
           <Route path="/" element={<Welcome />} />
           <Route
             path="/items"
-            element={<SearchResult getListItems={getListItems} data={data} />}
+            element={
+              <SearchResult
+                getListItems={getListItems}
+                data={data}
+                loading={loading}
+                error={error}
+              />
+            }
           />
           <Route
             path="/items/:id"
@@ -48,6 +59,8 @@ function App() {
                 dataItem={dataItem}
                 getDescription={getDescription}
                 descriptionItem={descriptionItem}
+                loading={loading}
+                error={error}
               />
             }
           />

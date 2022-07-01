@@ -6,33 +6,29 @@ export const UseApi = () => {
   const [dataItem, setDataItem] = useState();
   const [descriptionItem, setDescriptionItem] = useState();
   const [loading, setLoading] = useState(true);
-
-  console.log(loading);
+  const [error, setError] = useState("");
 
   const getListItems = (item) => {
-    setLoading(true);
     fetch(`${urlBase}/sites/MLA/search?q=${item}`)
       .then((response) => response.json())
       .then((data) => setData(data))
-      .catch((error) => console.log(error))
+      .catch((e) => setError(e))
       .finally(() => setLoading(false));
   };
 
   const getDetailItem = (id) => {
-    setLoading(true);
     fetch(`${urlBase}/items/${id}`)
       .then((response) => response.json())
       .then((data) => setDataItem(data))
-      .catch((error) => console.log(error))
+      .catch((e) => setError(e))
       .finally(() => setLoading(false));
   };
 
   const getDescription = (id) => {
-    setLoading(true);
     fetch(`${urlBase}/items/${id}/description`)
       .then((response) => response.json())
       .then((data) => setDescriptionItem(data))
-      .catch((error) => console.log(error))
+      .catch((e) => setError(e))
       .finally(() => setLoading(false));
   };
 
@@ -44,5 +40,6 @@ export const UseApi = () => {
     getDescription,
     descriptionItem,
     loading,
+    error,
   };
 };

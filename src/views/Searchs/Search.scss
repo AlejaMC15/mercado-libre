@@ -1,5 +1,7 @@
+@import '../../utils/variables.scss';
+
 .container {
-    background-color: #FFE600;
+    background-color: $primary-color;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,6 +17,7 @@
 
     .logo img {
         width: 100%;
+        cursor: pointer;
     }
 
     .search {
@@ -29,7 +32,7 @@
         input {
             border-color: transparent;
             border-radius: 2px;
-            color: #999999;
+            color: $quaternary-color;
             width: 100%;
             margin-left: 1%;
             outline: none;
@@ -37,7 +40,7 @@
         }
 
         img {
-            background-color: #EEEEEE;
+            background-color: $quinary-color;
             padding: 1%;
             border-radius: 0px 3px 3px 0px;
         }

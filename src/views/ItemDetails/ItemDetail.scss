@@ -1,9 +1,11 @@
+@import '../../utils/variables.scss';
+
 .containerItemDetail {
-    background-color: #EEEEEE;
+    background-color: $quinary-color;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 5% 13%;
+    padding: 0px 13% 5%;
 
     .bg {
         background-color: white;
@@ -13,30 +15,55 @@
 
     .sectionOne {
         display: flex;
-        width: 100%;
-        justify-content: space-between;
 
         .imgItem {
-            width: 100%;
+            width: 70%;
             display: flex;
-        }
 
-        .imgItem img {
-            width: 100%;
-        }
-
-        .detailItem {
-            text-align: left;
-            width: 30%;
-
-            button {
-                background: #3483FA;
-                border-color: transparent;
-                border-radius: 2px;
-                width: 70%;
+            img {
+                width: 90%;
             }
         }
 
+        .detailItem {
+            width: 30%;
+            text-align: left;
+            color: $secondary-color;
+
+            .condition {
+                font-size: 12px;
+            }
+
+            .title {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .price {
+                font-weight: bold;
+                font-size: 28px;
+                margin: 5% 0 10% 0;
+
+                sup {
+                    font-size: 16px;
+                }
+            }
+
+            button {
+                background: $sextenary-color;
+                border-color: transparent;
+                border-radius: 3px;
+                width: 70%;
+                padding: 2%;
+                color: white;
+            }
+        }
+
+        @media (max-width: 649px) {
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+        }
     }
 
     .containerDescription {
@@ -44,9 +71,10 @@
         margin: 10% 0 1% 1%;
 
         .description {
-            color: #999999;
+            color: $quaternary-color;
             font-size: 13px;
             width: 70%;
+            margin-top: 3%;
         }
     }
 }
