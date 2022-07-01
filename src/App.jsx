@@ -1,11 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Search from "./views/search/Search";
-import SearchResult from "./views/searchResult/SearchResult";
-import ItemDetail from "./views/itemDetail/ItemDetail";
+import Search from "./views/Searchs/Search";
+import SearchResult from "./views/SearchResults/SearchResult";
+import Welcome from "./views/Welcome/Welcome";
+import ItemDetail from "./views/ItemDetails/ItemDetail";
 import { UseApi } from "./hooks/UseApi";
 import { ListItemsProvider } from "./context/listItemContext";
-
 import "./App.scss";
 
 function App() {
@@ -21,18 +21,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <ul class="breadcrumb">
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">Pictures</a>
-        </li>
-        <li>
-          <a href="#">Summer 15</a>
-        </li>
-        <li>Italy</li>
-      </ul> */}
       <ListItemsProvider
         value={{
           getListItems,
@@ -46,6 +34,7 @@ function App() {
       >
         <Search />
         <Routes>
+          <Route path="/" element={<Welcome />} />
           <Route
             path="/items"
             element={<SearchResult getListItems={getListItems} data={data} />}
@@ -54,6 +43,7 @@ function App() {
             path="/items/:id"
             element={
               <ItemDetail
+                data={data}
                 getDetailItem={getDetailItem}
                 dataItem={dataItem}
                 getDescription={getDescription}

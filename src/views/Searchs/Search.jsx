@@ -10,6 +10,12 @@ const Search = () => {
 
   const navigate = useNavigate();
 
+  const onKeyDownHandler = (e) => {
+    if (e.keyCode === 13) {
+      navigate(`/items`, { state: itemSearch });
+    }
+  };
+
   return (
     <div className="container">
       <div className="logo">
@@ -22,6 +28,7 @@ const Search = () => {
           placeholder="Nunca dejes de buscar"
           name="q"
           onChange={(e) => setItemSearch(e.target.value)}
+          onKeyDown={onKeyDownHandler}
         />
         <img
           src={IconSearch}

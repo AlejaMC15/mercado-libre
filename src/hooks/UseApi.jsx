@@ -7,6 +7,8 @@ export const UseApi = () => {
   const [descriptionItem, setDescriptionItem] = useState();
   const [loading, setLoading] = useState(true);
 
+  console.log(loading);
+
   const getListItems = (item) => {
     setLoading(true);
     fetch(`${urlBase}/sites/MLA/search?q=${item}`)

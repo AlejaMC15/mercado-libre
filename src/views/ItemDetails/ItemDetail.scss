@@ -1,0 +1,52 @@
+.containerItemDetail {
+    background-color: #EEEEEE;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5% 13%;
+
+    .bg {
+        background-color: white;
+        border-radius: 5px;
+        padding: 2%;
+    }
+
+    .sectionOne {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        .imgItem {
+            width: 100%;
+            display: flex;
+        }
+
+        .imgItem img {
+            width: 100%;
+        }
+
+        .detailItem {
+            text-align: left;
+            width: 30%;
+
+            button {
+                background: #3483FA;
+                border-color: transparent;
+                border-radius: 2px;
+                width: 70%;
+            }
+        }
+
+    }
+
+    .containerDescription {
+        text-align: left;
+        margin: 10% 0 1% 1%;
+
+        .description {
+            color: #999999;
+            font-size: 13px;
+            width: 70%;
+        }
+    }
+}
