@@ -15,4 +15,6 @@
 
 #### This is the image of how the project should look when run
 
+![Image text](https://github.com/AlejaMC15/mercado-libre/blob/master/src/images/Challenge.png)
+
 ##### Excellent challenge, thanks for this.
