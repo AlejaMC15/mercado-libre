@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 import FormatPrice from "../../utils/formatPrice";
+import { Helmet } from "react-helmet";
 import "./ItemDetail.scss";
 
 const ItemDetail = (props) => {
@@ -30,6 +31,16 @@ const ItemDetail = (props) => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{dataItem?.title}</title>
+        <meta name="description" content={descriptionItem?.plain_text} />
+        <meta name="keywords" content={dataItem?.title} />
+        <meta name="og:image" content={dataItem?.pictures[0]?.secure_url} />
+        <meta name="og:title" content={dataItem?.title} />
+        <meta name="og:description" content={descriptionItem?.plain_text} />
+      </Helmet>
+
       <Breadcrumb categories={data?.filters[0]?.values[0]?.path_from_root} />
       {!loading ? (
         <div className="containerItemDetail">
