@@ -20,8 +20,6 @@ function App() {
     error,
   } = UseApi();
 
-  console.log(loading);
-
   return (
     <div className="App">
       <ListItemsProvider
